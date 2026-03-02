@@ -267,7 +267,7 @@ class setup:
         print(response.text)
 #ーーーーーーーメインコードーーーーーーーーーーー
 def main():
-    cw = setup(423252546, "API_TOKEN")
+    cw = setup(423252546, "9f89821d6eac0bba7adb611b00fc164e")
     seen = set()
 
     while True:
