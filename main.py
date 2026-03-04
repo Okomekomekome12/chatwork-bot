@@ -31,11 +31,13 @@ def webhook():
 
     if body and (body.count("(quick)") >= 10 or body.count(":*") >= 10):
         cw.viewer(account_id)
+        print(type(account_id))
+        print(account_id)
         cw.messagesend("[info][title]荒らし検知[/title]荒らしを検知しました、流します[/info]")
         for i in range(29):
             cw.messagesend("a")
             time.sleep(0.6)
-        message_link = f"https://www.chatwork.com/#!rid{room_id}-{message_id}"
+        message_link = cw.get_message_link()
         cw.messagesend("[info][title]荒らし対処完了[/title]メッセージリンクを配布します[/info]")
         cw.messagesend(f"[info][title]メッセリンク配布[/title]{message_link}[/info]")
 
