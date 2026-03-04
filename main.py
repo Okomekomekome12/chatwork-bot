@@ -1,6 +1,6 @@
 import os
 import time
-import chatwork
+from chatwork import chatwork
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
@@ -17,11 +17,10 @@ def webhook():
     signature = request.headers.get("X-ChatWorkWebhookSignature")
     if not chatwork.webhook_verify_signature(request.data, signature, SECRET_TOKEN):
         return "invalid signature", 403
-
     data = request.json
-    room_id    = chatwork.webhook_get_roomid(data)
+    room_id    = chatwork.webhook_get_roomid(data) # type: ignore
     body       = chatwork.webhook_get_message(data)
-    account_id = chatwork.webhook_get_account_id(data)
+    account_id = chatwork.webhook_get_account_id(data) # type: ignore
     message_id = chatwork.webhook_get_message_id(data)
 
     print(f"ルームID: {room_id}")
