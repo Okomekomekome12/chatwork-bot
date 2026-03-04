@@ -31,8 +31,6 @@ def webhook():
 
     if body and (body.count("(quick)") >= 10 or body.count(":*") >= 10):
         cw.viewer(account_id)
-        print(type(account_id))
-        print(account_id)
         cw.messagesend("[info][title]荒らし検知[/title]荒らしを検知しました、流します[/info]")
         for i in range(29):
             cw.messagesend("a")

@@ -45,8 +45,7 @@ def webhook_get_roomid(data: dict):
     return data.get("webhook_event", {}).get("room_id")
 
 def webhook_get_account_id(data: dict):
-    """Webhook ペイロードから送信者の account_id を返す"""
-    return data.get("webhook_event", {}).get("from_account_id")
+    return data.get("webhook_event", {}).get("account_id")
 
 def webhook_get_message_id(data: dict):
     """Webhook ペイロードからメッセージIDを返す"""
