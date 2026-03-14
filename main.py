@@ -1,6 +1,6 @@
 import os
 import time
-import tempchatwork.chatwork as chatwork
+import chatwork
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
