@@ -5,7 +5,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-API_TOKEN = "9f89821d6eac0bba7adb611b00fc164e"
+API_TOKEN = os.getenv("API_TOKEN")
 SECRET_TOKEN = None
 
 @app.route("/", methods=["GET"])
@@ -32,9 +32,9 @@ def webhook():
     if body and (body.count("(quick)") >= 10 or body.count(":*") >= 10):
         cw.viewer(account_id)
         cw.messagesend("[info][title]荒らし検知[/title]荒らしを検知しました、流します[/info]")
-        for i in range(29):
+        for i in range(50):
             cw.messagesend("a")
-            time.sleep(0.6)
+            time.sleep(0.7)
         message_link = cw.get_message_link()
         cw.messagesend("[info][title]荒らし対処完了[/title]メッセージリンクを配布します[/info]")
         cw.messagesend(f"[info][title]メッセリンク配布[/title]{message_link}[/info]")
