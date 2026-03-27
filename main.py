@@ -37,7 +37,7 @@ def webhook():
             time.sleep(0.7)
         message_link = cw.get_message_link()
         cw.messagesend("[info][title]荒らし対処完了[/title]メッセージリンクを配布します[/info]")
-        cw.messagesend(f"[info][title]メッセリンク配布[/title]{message_link}[/info]")
+        cw2.messagesend(f"[info][title]メッセリンク配布[/title]{message_link}[/info]")
     elif body == "/live?":
         cw.messagesend("生きてるお")
     return jsonify({"status": "ok"}), 200
