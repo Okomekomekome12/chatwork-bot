@@ -298,5 +298,4 @@ class setup:
         }
 
         response = requests.get(url, headers=headers)
-
         print(response.text)
