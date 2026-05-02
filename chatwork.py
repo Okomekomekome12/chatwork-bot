@@ -288,3 +288,15 @@ class setup:
         response = requests.put(url, data=payload, headers=headers)
 
         print(response.text)
+
+    def get_description(self):
+        url = f"https://api.chatwork.com/v2/rooms/{self.room_id}"
+
+        headers = {
+            "accept": "application/json",
+            "x-chatworktoken": self.api_token
+        }
+
+        response = requests.get(url, headers=headers)
+
+        print(response.text)
